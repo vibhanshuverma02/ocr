@@ -1,0 +1,48 @@
+r-py3.11) C:\Users\Abhishek\ocr>python main.py --input-image  C:\Users\Abhishek\ocr\kishor.avif
+
+🚀 Starting OCR + LLM pipeline...
+🔧 Step 1: Initialize OcrChain...
+🔧 Initializing ChatOllama model...
+✅ Model initialized and prompt created in 0.64 seconds.
+✅ OcrChain initialized in 0.67 seconds.
+
+📂 Step 2: Running OCR + LLM inference...
+
+📂 Step 1: Reading & encoding image: C:\Users\Abhishek\ocr\kishor.avif
+🖼️ Loading and preprocessing image...
+📄 Encoding image to base64...
+✅ Image successfully encoded.
+✅ Image processed in 0.09 seconds.
+
+📦 Step 2: Creating OCR chain...
+🔗 Building the OCR prompt → LLM chain...
+✅ Chain created in 0.00 seconds.
+
+⚡ Step 3: Invoking chain with image data...
+✅ Chain invoked and response received in 87.62 seconds.
+
+📄 Step 4: Final LLM output:
+Here's the extracted information from the invoice image in Markdown format:
+
+*   **Vendor Name:** Kishore Travels
+*   **Invoice Number:** 730
+*   **Invoice Date:** 15/3/22
+*   **Total Amount:** 60.00/-
+*   **Total Amount:** 5.00/-
+*   **Balance:** 55.00/-
+
+⏱️ Total processing time: 87.71 seconds.
+
+✅ OCR + LLM inference done in 87.71 seconds.
+
+📄 Final OCR result from LLM:
+Here's the extracted information from the invoice image in Markdown format:
+
+*   **Vendor Name:** Kishore Travels
+*   **Invoice Number:** 730
+*   **Invoice Date:** 15/3/22
+*   **Total Amount:** 60.00/-
+*   **Total Amount:** 5.00/-
+*   **Balance:** 55.00/-
+
+⏱️ Total pipeline time: 88.40 seconds.

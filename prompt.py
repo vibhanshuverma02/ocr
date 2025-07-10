@@ -18,7 +18,6 @@ def create_ocr_prompt() -> ChatPromptTemplate:
     "   - 'Total Charges'\n"
     "   - 'Vehicle Charges'\n"
     "   - 'Hotel Charges'\n"
-    "   - 'Balance to be Paid'\n"
     "   - 'Total Amount'\n"
     "   - Any large total-related value at the end\n"
     "**Return the output in Markdown format**.\n"

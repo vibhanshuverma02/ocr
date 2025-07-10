@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from ocr import OcrChain
+import time
 
 def main():
     parser = ArgumentParser()
@@ -28,15 +29,29 @@ def main():
         help="The image to perform OCR on.",
     )
     args = parser.parse_args()
-    
+
+    print("\n🚀 Starting OCR + LLM pipeline...")
+    overall_start = time.time()
+
+    print("🔧 Step 1: Initialize OcrChain...")
+    t1 = time.time()
     ocr_chain = OcrChain(
         model=args.model,
         base_url=args.base_url,
         temperature=args.temperature,
     )
-    result = ocr_chain.invoke(args.input_image)
+    print(f"✅ OcrChain initialized in {time.time() - t1:.2f} seconds.\n")
 
-    print("OCR result:", result)
+    print("📂 Step 2: Running OCR + LLM inference...")
+    t2 = time.time()
+    result = ocr_chain.invoke(args.input_image)
+    print(f"✅ OCR + LLM inference done in {time.time() - t2:.2f} seconds.\n")
+
+    print("📄 Final OCR result from LLM:")
+    print(result)
+
+    total_time = time.time() - overall_start
+    print(f"\n⏱️ Total pipeline time: {total_time:.2f} seconds.\n")
 
 if __name__ == "__main__":
     main()
