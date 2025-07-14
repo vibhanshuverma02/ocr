@@ -2,7 +2,7 @@ from typing import Optional, Any
 import io
 import base64
 import time
-
+import os
 from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.runnables.utils import Input, Output
 from langchain_ollama import ChatOllama
@@ -56,10 +56,19 @@ class OcrChain(Runnable[Input, Output]):
         file = Image.open(image_filename).convert("RGB")
         file = file.resize((768, 768))
 
-        buf = io.BytesIO()
-        file.save(buf, format="JPEG", quality=90)
+        # Ensure 'output' directory exists
+        output_dir = os.path.join(os.getcwd(), "output")
+        os.makedirs(output_dir, exist_ok=True)
 
-        print("📄 Encoding image to base64...")
-        encoded = base64.b64encode(buf.getvalue()).decode("utf-8")
+        # Save resized image to output folder
+        output_path = os.path.join(output_dir, os.path.basename(image_filename))
+        file.save(output_path, format="JPEG", quality=90)
+        print(f"💾 Image saved to: {output_path}")
+
+        # Encode the saved image to base64
+        with open(output_path, "rb") as f:
+            encoded = base64.b64encode(f.read()).decode("utf-8")
+
         print("✅ Image successfully encoded.")
         return encoded
+       

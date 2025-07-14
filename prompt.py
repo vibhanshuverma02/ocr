@@ -17,6 +17,7 @@ def create_ocr_prompt() -> ChatPromptTemplate:
     "   - 'Total'\n"
     "   - 'Total Charges'\n"
     "   - 'Total Amount'\n"
+    "   - 'Grand Total'\n"
     "   - Any large total-related value at the end\n"
     "**Return the output in Markdown format**.\n"
     "If a field is unreadable or missing, write `(unreadable)` instead of a value.\n\n"
