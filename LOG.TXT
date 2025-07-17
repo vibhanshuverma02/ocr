@@ -22,3 +22,51 @@ Here's the extracted information from the invoice image in Markdown format:
 *   **Total Amount:** 2836.00 (Indian Standard Thousand Crores Lakh Hundred Under)
 
 ⏱️ Total pipeline time: 75.32 seconds.
+
+
+
+“  You are an expert invoice parsing assistant.Please extract the following information from the provided invoice image: Vendor Name, Invoice Number, Invoice
+Date (using DD/MM/YYYY format), and Invoice Amount (including all taxes).  Pay very close attention to the
+formatting of the date and the currency – specifically to the decimal places and use of Indian currency
+conventions (e.g., ‘lakh’, ‘thousand’).  I will provide the invoice text, and you will only output the four fields
+above, exactly as requested.”
+
+**Key elements of this prompt:**
+
+*   **Specific Field Definitions:** Clearly states exactly what data I’m looking for.
+*   **Format Specification:** Explicitly requires the date to be in DD/MM/YYYY format.
+*   **Currency Attention:** Reminds me to be particularly careful with currency formatting.
+*   **Output Formatting:** Requests a precise output format.
+here is the image "D:\langchain-ocr-the-hard-way\gaurav.jpg"
+
+
+“Analyze the following invoice image and identify the following key pieces of information:
+*   **Vendor Name:** (The name of the company issuing the invoice)
+*   **Invoice Number:** (The unique identifier assigned to this invoice)
+*   **Invoice Date:** (The date the invoice was issued)
+*   **Grand Total Amount:** (The total amount due, including all taxes and discounts)
+
+Provide the values for each of these fields as clearly and accurately as possible.”
+
+**3.  Structured Output Request (Best for tools that support structured data output - like JSON or CSV):**
+
+“Extract the following fields from this invoice image and output the results in JSON format:
+
+```json
+{
+  "vendor_name": "",
+  "invoice_number": "",
+  "invoice_date": "",
+  "grand_total": ""
+}
+```
+
+After processing, fill in the corresponding values into the JSON object.”
+
+**Tips for Better Results:**
+
+*   **Clear Images:** Ensure the invoice image is of high quality, properly lit, and has clear text.
+*   **Specify Formatting:**  If the tool allows, explicitly ask for the date to be formatted as “YYYY-MM-DD” or
+“MM/DD/YYYY” to avoid confusion.
+*   **Context:** If you can, provide context to the tool.  For example, “This is a commercial invoice for a
+business purchase.”
